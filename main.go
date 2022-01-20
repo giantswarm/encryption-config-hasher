@@ -85,6 +85,7 @@ func main() {
 		os.Exit(2)
 	}
 
+	fmt.Printf("encryption config shake256 SUM for node %s set to %s\n waiting forever . . .\n", nodeName, configShake256Sum)
 	// the file do not change during lifetime of a machine so no need to try multiple time
 	// wait forever (daemonSets pod cannot exit as they would be restarted by the controller)
 	select {}
