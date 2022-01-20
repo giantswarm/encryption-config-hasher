@@ -1,7 +1,7 @@
 apiVersion: v1
 appVersion: 0.0.1
-name: {APP-NAME}
-description: A Helm chart for {APP-NAME}
+name: {encryption-config-hasher}
+description: A Helm chart for {encryption-config-hasher}
 engine: gotpl
 home: https://github.com/giantswarm/{APP-NAME}-app
 
