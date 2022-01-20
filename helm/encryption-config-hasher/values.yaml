@@ -1,5 +1,4 @@
 name: encryption-config-hasher
-namespace: kube-system
 serviceType: managed
 
 project:

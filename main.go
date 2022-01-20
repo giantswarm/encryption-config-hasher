@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"os"
+	"time"
 
 	"golang.org/x/crypto/sha3"
 	v1 "k8s.io/api/core/v1"
@@ -28,11 +29,10 @@ var (
 
 func init() {
 	_ = clientgoscheme.AddToScheme(scheme)
-
-	//+kubebuilder:scaffold:scheme
 }
 
 func main() {
+	time.Sleep(time.Second * 10)
 	ctx := context.TODO()
 	// flags
 	var encryptionConfigFilePath string
@@ -73,7 +73,6 @@ func main() {
 	if err != nil {
 		fmt.Printf("ERROR: failed to fetch secret %s/%s - %s\n", EncryptionProviderConfigShake256SecretNamespace, EncryptionProviderConfigShake256SecretName, err)
 		os.Exit(2)
-
 	}
 	// update the node
 	secret.Data[nodeName] = []byte(configShake256Sum)
