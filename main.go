@@ -72,6 +72,10 @@ func main() {
 		fmt.Printf("ERROR: failed to fetch secret %s/%s - %s\n", EncryptionProviderConfigShake256SecretNamespace, EncryptionProviderConfigShake256SecretName, err)
 		os.Exit(2)
 	}
+	if secret.Data == nil {
+		secret.Data = map[string][]byte{}
+	}
+
 	// update the node
 	secret.Data[nodeName] = []byte(configShake256Sum)
 
