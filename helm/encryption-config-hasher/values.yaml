@@ -8,8 +8,9 @@ project:
   branch: "[[ .Branch ]]"
   commit: "[[ .SHA ]]"
 
+registry:
+  domain: quay.io
 image:
-  registry: quay.io
   name: giantswarm/{encryption-config-hasher}
   tag: "[[ .Version ]]"
   pullPolicy: IfNotPresent
