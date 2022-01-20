@@ -37,7 +37,7 @@ func main() {
 	ctx := context.TODO()
 	// flags
 	var encryptionConfigFilePath string
-	flag.StringVar(&encryptionConfigFilePath, "encryption-config-file-path", "/etc/kubernetes/encryption/config.yaml", "The path to the encryption config file.")
+	flag.StringVar(&encryptionConfigFilePath, "encryption-config-file-path", "/etc/kubernetes/encryption/k8s-encryption-config.yaml", "The path to the encryption config file.")
 
 	// read the encryption config file
 	f, err := ioutil.ReadFile(encryptionConfigFilePath)
@@ -87,7 +87,7 @@ func main() {
 
 	// the file do not change during lifetime of a machine so no need to try multiple time
 	// wait forever (daemonSets pod cannot exit as they would be restarted by the controller)
-	select{}
+	select {}
 }
 
 func shake256Sum(buf []byte) string {
