@@ -21,4 +21,4 @@ spec:
   hostIPC: false
   hostPID: false
   volumes:
-  - "*"
+  - hostPath
