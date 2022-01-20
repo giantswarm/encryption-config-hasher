@@ -1,6 +1,4 @@
-# TEMPLATE-APP: This is set as a reasonable default, feel free to change.
-
-name: {encryption-config-hasher}
+name: encryption-config-hasher
 namespace: kube-system
 serviceType: managed
 
@@ -11,7 +9,7 @@ project:
 registry:
   domain: quay.io
 image:
-  name: giantswarm/{encryption-config-hasher}
+  name: giantswarm/encryption-config-hasher
   tag: "[[ .Version ]]"
   pullPolicy: IfNotPresent
 
