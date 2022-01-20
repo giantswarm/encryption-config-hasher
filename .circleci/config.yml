@@ -54,7 +54,7 @@ workflows:
           app_catalog: "giantswarm-playground-catalog"
           app_catalog_test: "giantswarm-playground-test-catalog"
           chart: "encryption-config-hasher"
-          equires:
+          requires:
             - push-encryption-config-hasher-to-quay
           # Trigger job on git tag.
           filters:
