@@ -1,17 +1,61 @@
 version: 2.1
 orbs:
-  architect: giantswarm/architect@4.8.1
+  architect: giantswarm/architect@4.9.0
 
 workflows:
-  package-and-push-chart-on-tag:
+  build:
     jobs:
+      - architect/go-build:
+          name: go-build
+          binary: encryption-config-hasher
+          filters:
+            tags:
+              only: /^v.*/
+      - architect/push-to-docker:
+          context: "architect"
+          name: push-encryption-config-hasher-to-quay
+          image: "quay.io/giantswarm/encryption-config-hasher"
+          username_envar: "QUAY_USERNAME"
+          password_envar: "QUAY_PASSWORD"
+          requires:
+            - go-build
+          # Needed to trigger job also on git tag.
+          filters:
+            tags:
+              only: /^v.*/
+      - architect/push-to-docker:
+          context: "architect"
+          name: push-encryption-config-hasher-to-aliyun
+          image: "registry-intl.cn-shanghai.aliyuncs.com/giantswarm/encryption-config-hasher"
+          username_envar: "ALIYUN_USERNAME"
+          password_envar: "ALIYUN_PASSWORD"
+          requires:
+            - go-build
+          # Needed to trigger job also on git tag.
+          filters:
+            tags:
+              only: /^v.*/
+      - architect/push-to-docker:
+          context: "architect"
+          name: push-encryption-config-hasher-to-docker
+          image: "docker.io/giantswarm/encryption-config-hasher"
+          username_envar: "DOCKER_USERNAME"
+          password_envar: "DOCKER_PASSWORD"
+          requires:
+            - go-build
+          # Needed to trigger job also on git tag.
+          filters:
+            tags:
+              only: /^v.*/
       - architect/push-to-app-catalog:
           context: "architect"
           # executor: "app-build-suite" # uncomment this if you want automatic metadata generation and helm chart linting
-          name: "package and push {APP-NAME} chart"
+          name: "package and push encryption-config-hasher chart"
           app_catalog: "giantswarm-playground-catalog"
           app_catalog_test: "giantswarm-playground-test-catalog"
-          chart: "{APP-NAME}"
+          chart: "encryption-config-hasher"
+          equires:
+            - push-encryption-config-hasher-to-quay
           # Trigger job on git tag.
           filters:
             tags:
