@@ -51,7 +51,7 @@ func main() {
 	// get node name
 	nodeName := os.Getenv(EnvNodeName)
 	if nodeName == "" {
-		fmt.Printf("ERROR: '%s' env cannot be empty", EnvNodeName)
+		fmt.Printf("ERROR: '%s' env cannot be empty\n", EnvNodeName)
 		panic(fmt.Errorf(" '%s' env cannot be empty", EnvNodeName))
 	}
 

@@ -12,3 +12,4 @@ image:
   name: giantswarm/encryption-config-hasher
   tag: "[[ .Version ]]"
   pullPolicy: IfNotPresent
+
