@@ -2,7 +2,6 @@ package main
 
 import (
 	"context"
-	"errors"
 	"flag"
 	"fmt"
 	"io/ioutil"
@@ -53,7 +52,7 @@ func main() {
 	nodeName := os.Getenv(EnvNodeName)
 	if nodeName == "" {
 		fmt.Printf("ERROR: '%s' env cannot be empty", EnvNodeName)
-		panic(errors.New(fmt.Sprintf(" '%s' env cannot be empty", EnvNodeName)))
+		panic(fmt.Errorf(" '%s' env cannot be empty", EnvNodeName))
 	}
 
 	ctrlClient, err := ctrlclient.New(config.GetConfigOrDie(), ctrlclient.Options{})
