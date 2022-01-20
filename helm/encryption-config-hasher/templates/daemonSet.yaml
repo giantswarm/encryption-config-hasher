@@ -51,7 +51,7 @@ spec:
       - operator: Exists
       volumes:
       - hostPath:
-          path: /etc/kubernetes/encryption
+          path: /etc/kubernetes/encryption/
           type: ""
         name: encryption-config-dir
       terminationGracePeriodSeconds: 10

@@ -28,8 +28,6 @@ var (
 
 func init() {
 	_ = clientgoscheme.AddToScheme(scheme)
-
-	//+kubebuilder:scaffold:scheme
 }
 
 func main() {
@@ -73,8 +71,11 @@ func main() {
 	if err != nil {
 		fmt.Printf("ERROR: failed to fetch secret %s/%s - %s\n", EncryptionProviderConfigShake256SecretNamespace, EncryptionProviderConfigShake256SecretName, err)
 		os.Exit(2)
-
 	}
+	if secret.Data == nil {
+		secret.Data = map[string][]byte{}
+	}
+
 	// update the node
 	secret.Data[nodeName] = []byte(configShake256Sum)
 
@@ -85,6 +86,7 @@ func main() {
 		os.Exit(2)
 	}
 
+	fmt.Printf("encryption config shake256 SUM for node %s set to %s\n waiting forever . . .\n", nodeName, configShake256Sum)
 	// the file do not change during lifetime of a machine so no need to try multiple time
 	// wait forever (daemonSets pod cannot exit as they would be restarted by the controller)
 	select {}
