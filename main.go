@@ -41,8 +41,8 @@ func main() {
 	// read the encryption config file
 	f, err := ioutil.ReadFile(encryptionConfigFilePath)
 	if err != nil {
-		fmt.Printf("ERROR: failed to read file %s\n", encryptionConfigFilePath)
-		panic(err)
+		fmt.Printf("ERROR: failed to read file %s %s\n", encryptionConfigFilePath, err)
+		os.Exit(2)
 	}
 
 	// calculate the sum
@@ -52,13 +52,13 @@ func main() {
 	nodeName := os.Getenv(EnvNodeName)
 	if nodeName == "" {
 		fmt.Printf("ERROR: '%s' env cannot be empty\n", EnvNodeName)
-		panic(fmt.Errorf(" '%s' env cannot be empty", EnvNodeName))
+		os.Exit(2)
 	}
 
 	ctrlClient, err := ctrlclient.New(config.GetConfigOrDie(), ctrlclient.Options{})
 	if err != nil {
-		fmt.Printf("ERROR: failed to init k8s client\n")
-		panic(err)
+		fmt.Printf("ERROR: failed to init k8s client %s\n", err)
+		os.Exit(2)
 	}
 
 	// fetch the secret
@@ -71,8 +71,9 @@ func main() {
 		&secret)
 
 	if err != nil {
-		fmt.Printf("ERROR: failed to fetch secret %s/%s\n", EncryptionProviderConfigShake256SecretNamespace, EncryptionProviderConfigShake256SecretName)
-		panic(err)
+		fmt.Printf("ERROR: failed to fetch secret %s/%s - %s\n", EncryptionProviderConfigShake256SecretNamespace, EncryptionProviderConfigShake256SecretName, err)
+		os.Exit(2)
+
 	}
 	// update the node
 	secret.Data[nodeName] = []byte(configShake256Sum)
@@ -80,8 +81,8 @@ func main() {
 	// update the sum for this node in the secret
 	err = ctrlClient.Update(ctx, &secret)
 	if err != nil {
-		fmt.Printf("ERROR: failed to fetch secret %s/%s\n", EncryptionProviderConfigShake256SecretNamespace, EncryptionProviderConfigShake256SecretName)
-		panic(err)
+		fmt.Printf("ERROR: failed to fetch secret %s/%s - %s\n", EncryptionProviderConfigShake256SecretNamespace, EncryptionProviderConfigShake256SecretName, err)
+		os.Exit(2)
 	}
 
 	// the file do not change during lifetime of a machine so no need to try multiple time
