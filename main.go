@@ -5,13 +5,12 @@ import (
 	"flag"
 	"fmt"
 	"io/ioutil"
-	"os"
-	"time"
 
 	"golang.org/x/crypto/sha3"
 	v1 "k8s.io/api/core/v1"
 	"k8s.io/apimachinery/pkg/runtime"
 	clientgoscheme "k8s.io/client-go/kubernetes/scheme"
+	"os"
 	ctrlclient "sigs.k8s.io/controller-runtime/pkg/client"
 	"sigs.k8s.io/controller-runtime/pkg/client/config"
 )
@@ -32,7 +31,6 @@ func init() {
 }
 
 func main() {
-	time.Sleep(time.Second * 10)
 	ctx := context.TODO()
 	// flags
 	var encryptionConfigFilePath string
