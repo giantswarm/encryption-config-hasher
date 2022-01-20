@@ -43,7 +43,7 @@ spec:
             memory: 50Mi
         volumeMounts:
         - mountPath: /etc/kubernetes/encryption/
-          name: encryption
+          name: encryption-config-dir
       priorityClassName: system-node-critical
       nodeSelector:
         node-role.kubernetes.io/master: ""
@@ -53,5 +53,5 @@ spec:
       - hostPath:
           path: /etc/kubernetes/encryption/
           type: ""
-        name: encryption
+        name: encryption-config-dir
       terminationGracePeriodSeconds: 10
