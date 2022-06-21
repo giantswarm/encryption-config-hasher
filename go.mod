@@ -17,4 +17,7 @@ replace (
 	github.com/dgrijalva/jwt-go => github.com/dgrijalva/jwt-go/v4 v4.0.0-preview1
 	github.com/gogo/protobuf => github.com/gogo/protobuf v1.3.2
 	github.com/gorilla/websocket v1.4.0 => github.com/gorilla/websocket v1.4.2
+	github.com/prometheus/client_golang => github.com/prometheus/client_golang v1.12.2
+	go.mongodb.org/mongo-driver => go.mongodb.org/mongo-driver v1.9.1
+	golang.org/x/text => golang.org/x/text v0.3.7
 )
