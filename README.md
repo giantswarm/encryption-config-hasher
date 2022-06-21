@@ -1,4 +1,4 @@
-[![CircleCI](https://circleci.com/gh/giantswarm/encryption-config-hasher-app.svg?style=shield)](https://circleci.com/gh/giantswarm/encryption-config-hasher-app)
+[![CircleCI](https://circleci.com/gh/giantswarm/encryption-config-hasher.svg?style=shield)](https://circleci.com/gh/giantswarm/encryption-config-hasher)
 
 # encryption-config-hasher chart
 
