@@ -46,7 +46,12 @@ spec:
           name: encryption-config-dir
       priorityClassName: system-node-critical
       nodeSelector:
+{{- if semverCompare ">=1.24.0" .Capabilities.KubeVersion.Version }}
+        node-role.kubernetes.io/control-plane: ""
+{{- else }}
         node-role.kubernetes.io/master: ""
+{{- end }}
+
       tolerations:
       - operator: Exists
       volumes:
