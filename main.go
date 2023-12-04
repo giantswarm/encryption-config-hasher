@@ -4,7 +4,6 @@ import (
 	"context"
 	"flag"
 	"fmt"
-	"io/ioutil"
 	"os"
 
 	"golang.org/x/crypto/sha3"
@@ -37,7 +36,7 @@ func main() {
 	flag.StringVar(&encryptionConfigFilePath, "encryption-config-file-path", "/etc/kubernetes/encryption/k8s-encryption-config.yaml", "The path to the encryption config file.")
 
 	// read the encryption config file
-	f, err := ioutil.ReadFile(encryptionConfigFilePath)
+	f, err := os.ReadFile(encryptionConfigFilePath)
 	if err != nil {
 		fmt.Printf("ERROR: failed to read file %s %s\n", encryptionConfigFilePath, err)
 		os.Exit(2)
