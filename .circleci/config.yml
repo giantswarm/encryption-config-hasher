@@ -5,29 +5,37 @@ orbs:
 workflows:
   build:
     jobs:
-      - architect/go-build:
-          name: go-build
-          binary: encryption-config-hasher
-          filters:
-            tags:
-              only: /^v.*/
-      - architect/push-to-registries:
-          context: architect
-          name: push-to-registries
-          requires:
-            - go-build
-          filters:
-            tags:
-              only: /^v.*/
-      - architect/push-to-app-catalog:
-          context: "architect"
+    - architect/go-build:
+        name: go-build
+        binary: encryption-config-hasher
+        filters:
+          tags:
+            only: /^v.*/
+    - architect/push-to-registries:
+        context: architect
+        name: push-to-registries
+        requires:
+        - go-build
+        filters:
+          tags:
+            only: /^v.*/
+          branches:
+            ignore:
+            - main
+            - master
+    - architect/push-to-app-catalog:
+        context: architect
           # executor: "app-build-suite" # uncomment this if you want automatic metadata generation and helm chart linting
-          name: "package and push encryption-config-hasher chart"
-          app_catalog: "giantswarm-playground-catalog"
-          app_catalog_test: "giantswarm-playground-test-catalog"
-          chart: "encryption-config-hasher"
-          requires:
-            - push-to-registries
-          filters:
-            tags:
-              only: /^v.*/
+        name: package and push encryption-config-hasher chart
+        app_catalog: giantswarm-playground-catalog
+        app_catalog_test: giantswarm-playground-test-catalog
+        chart: encryption-config-hasher
+        requires:
+        - push-to-registries
+        filters:
+          tags:
+            only: /^v.*/
+          branches:
+            ignore:
+            - main
+            - master
