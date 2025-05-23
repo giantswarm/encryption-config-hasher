@@ -1,3 +1,7 @@
-# pkg:golang/k8s.io/apiserver@v0.25.0
-sonatype-2022-6522
-CVE-2020-8561
+CVE-2025-22869 until=2025-06-22 # golang.org/x/crypto@v0.14.0
+CVE-2023-48795 until=2025-06-22 # golang.org/x/crypto@v0.14.0
+CVE-2024-45337 until=2025-06-22 # golang.org/x/crypto@v0.14.0
+CVE-2025-22872 until=2025-06-22 # golang.org/x/net@v0.17.0
+CVE-2024-45338 until=2025-06-22 # golang.org/x/net@v0.17.0
+CVE-2025-22870 until=2025-06-22 # golang.org/x/net@v0.17.0
+CVE-2024-24786 until=2025-06-22 # google.golang.org/protobuf@v1.28.0
