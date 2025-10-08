@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Use `gsoci.azurecr.io` as default container registry.
+
 ## [0.1.2] - 2022-06-21
 
 ### Fixed

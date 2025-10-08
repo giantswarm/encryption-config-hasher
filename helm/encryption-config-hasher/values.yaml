@@ -6,7 +6,7 @@ project:
   commit: "[[ .SHA ]]"
 
 registry:
-  domain: quay.io
+  domain: gsoci.azurecr.io
 image:
   name: giantswarm/encryption-config-hasher
   tag: "[[ .Version ]]"
