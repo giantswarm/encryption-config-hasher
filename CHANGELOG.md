@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Bump go version to 1.24.
+- Bump architect version to 6.7.0.
+
 ## [0.2.0] - 2025-10-08
 
 ### Changed
