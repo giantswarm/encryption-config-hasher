@@ -4,9 +4,9 @@ go 1.24.0
 
 require (
 	golang.org/x/crypto v0.44.0
-	k8s.io/api v0.34.1
-	k8s.io/apimachinery v0.34.1
-	k8s.io/client-go v0.34.1
+	k8s.io/api v0.34.2
+	k8s.io/apimachinery v0.34.2
+	k8s.io/client-go v0.34.2
 	sigs.k8s.io/controller-runtime v0.22.4
 )
 
