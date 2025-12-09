@@ -50,6 +50,6 @@ require (
 	sigs.k8s.io/yaml v1.6.0 // indirect
 )
 
-replace golang.org/x/net => golang.org/x/net v0.47.0
+replace golang.org/x/net => golang.org/x/net v0.48.0
 
 replace google.golang.org/protobuf v1.28.0 => google.golang.org/protobuf v1.36.10
