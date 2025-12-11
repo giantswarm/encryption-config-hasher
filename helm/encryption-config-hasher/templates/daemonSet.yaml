@@ -46,7 +46,7 @@ spec:
           name: encryption-config-dir
       priorityClassName: system-node-critical
       nodeSelector:
-        node-role.kubernetes.io/master: ""
+        node-role.kubernetes.io/control-plane: ""
       tolerations:
       - operator: Exists
       volumes:

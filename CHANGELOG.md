@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Bump go version to 1.24.
 - Bump architect version to 6.7.0.
+- Change `DaemonSet` node selector from `node-role.kubernetes.io/master` to `node-role.kubernetes.io/control-plane`, as the older is no longer used/available.
 
 ## [0.2.0] - 2025-10-08
 
