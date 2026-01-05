@@ -1,13 +1,9 @@
 name: encryption-config-hasher
 serviceType: managed
 
-project:
-  branch: "[[ .Branch ]]"
-  commit: "[[ .SHA ]]"
-
 registry:
   domain: gsoci.azurecr.io
 image:
   name: giantswarm/encryption-config-hasher
-  tag: "[[ .Version ]]"
+  tag: ""
   pullPolicy: IfNotPresent
