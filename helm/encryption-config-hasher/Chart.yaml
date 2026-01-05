@@ -1,6 +1,9 @@
-apiVersion: v1
-appVersion: [[ .Version ]]
+apiVersion: v2
 name: encryption-config-hasher
+version: 0.3.0-dev
 description: A Helm chart for encryption-config-hasher
+appVersion: 0.3.0-dev
 home: https://github.com/giantswarm/encryption-config-hasher
-version: [[ .Version ]]
+icon: https://s.giantswarm.io/app-icons/giantswarm/1/dark.svg
+annotations:
+  io.giantswarm.application.team: phoenix
