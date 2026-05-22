@@ -33,7 +33,7 @@ require (
 	go.yaml.in/yaml/v3 v3.0.4 // indirect
 	golang.org/x/net v0.53.0 // indirect
 	golang.org/x/oauth2 v0.34.0 // indirect
-	golang.org/x/sys v0.44.0 // indirect
+	golang.org/x/sys v0.45.0 // indirect
 	golang.org/x/term v0.43.0 // indirect
 	golang.org/x/text v0.37.0 // indirect
 	golang.org/x/time v0.14.0 // indirect
@@ -49,6 +49,6 @@ require (
 	sigs.k8s.io/yaml v1.6.0 // indirect
 )
 
-replace golang.org/x/net => golang.org/x/net v0.54.0
+replace golang.org/x/net => golang.org/x/net v0.55.0
 
 replace google.golang.org/protobuf v1.28.0 => google.golang.org/protobuf v1.36.10
