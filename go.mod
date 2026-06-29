@@ -52,3 +52,5 @@ require (
 replace golang.org/x/net => golang.org/x/net v0.56.0
 
 replace google.golang.org/protobuf v1.28.0 => google.golang.org/protobuf v1.36.10
+
+replace go.opentelemetry.io/otel/sdk v1.40.0 => go.opentelemetry.io/otel/sdk v1.44.0
