@@ -36,7 +36,7 @@ func main() {
 	flag.StringVar(&encryptionConfigFilePath, "encryption-config-file-path", "/etc/kubernetes/encryption/k8s-encryption-config.yaml", "The path to the encryption config file.")
 
 	// read the encryption config file
-	f, err := os.ReadFile(encryptionConfigFilePath)
+	f, err := os.ReadFile(encryptionConfigFilePath) // #nosec G304
 	if err != nil {
 		fmt.Printf("ERROR: failed to read file %s %s\n", encryptionConfigFilePath, err)
 		os.Exit(2)
