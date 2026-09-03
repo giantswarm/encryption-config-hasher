@@ -3,7 +3,7 @@ module github.com/giantswarm/encryption-config-hasher
 go 1.26.0
 
 require (
-	golang.org/x/crypto v0.55.0
+	golang.org/x/crypto v0.56.0
 	k8s.io/api v0.37.0
 	k8s.io/apimachinery v0.37.0
 	k8s.io/client-go v0.37.0
